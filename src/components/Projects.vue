@@ -5,7 +5,7 @@
                 <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white" id="projects">Projects</h1>
                 <p
                     class="lg:w-1/2 w-full leading-relaxed text-opacity-80"
-                >Here is a list of past and present projects I'm involved with.</p>
+                >Here is a list containing some the of past and present<br/>projects I've been involved with.</p>
                 <div class="flex mt-6 justify-center">
                     <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
                 </div>
