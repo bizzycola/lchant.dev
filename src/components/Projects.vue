@@ -24,7 +24,7 @@
                         </h2>
                         <p
                             class="leading-relaxed text-base"
-                        >Backend Docker deployment tool with a similar workflow to Netlify, integrates with Github and contains a custom reverse proxy.</p>
+                        >Self-Hosted Backend Docker deployment tool with a similar workflow to Netlify, integrates with Github and contains an integrated custom reverse proxy.</p>
                     </div>
                 </div>
                 <div class="xl:w-1/3 md:w-1/2 p-4">
