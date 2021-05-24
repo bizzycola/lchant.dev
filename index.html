@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,15 +10,25 @@
   <meta name="msapplication-TileColor" content="#00aba9">
   <meta name="theme-color" content="#ffffff">
   <style>
-    .l {
-      color: rgb(10, 8, 31);
+    body::-webkit-scrollbar {
+      width: 9px;
+    }
+
+    body::-webkit-scrollbar-track {
+      background: #d4cfbf;
+    }
+
+    body::-webkit-scrollbar-thumb {
+      background-color: rgb(8, 6, 24);
+      
     }
   </style>
 </head>
+
 <body class="dark-bg">
   <div id="app"></div>
   <script>
-    (function() {
+    (function () {
       const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
       const setting = localStorage.getItem('color-schema') || 'auto'
       if (setting === 'dark' || (prefersDark && setting !== 'light'))
@@ -26,4 +37,5 @@
   </script>
   <script type="module" src="/src/main.ts"></script>
 </body>
+
 </html>
