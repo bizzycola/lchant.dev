@@ -10,9 +10,10 @@
                 alt="team"
                 class="lg:w-2/8 md:w-3/8 w-5/6 mb-10 object-cover object-center rounded-full heroimg"
                 src="/prof.jpg"
+                id="top"
             />
             <div class="text-center lg:w-2/3 w-full">
-                <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">Welcome!</h1>
+                <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white" >Welcome!</h1>
                 <p class="leading-relaxed mb-8">
                     I'm Lachlan, a 26 year old Software Developer and Musician from Sydney, Australia.
                     <br />Primarily experienced in web, specializing in backend APIs and microservices, including freelance services.<br/>

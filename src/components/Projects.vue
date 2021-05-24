@@ -102,8 +102,8 @@
             </div>
             <br />
             <div class="flex justify-center">
-                <a href="#">
-                    <bx-bxs-down-arrow-circle class="text-5xl hero-down-arrow" />
+                <a href="#top" v-smooth-scroll>
+                    <bx-bxs-down-arrow-circle class="text-5xl hero-down-arrow"  />
                 </a>
             </div>
         </div>
