@@ -1,15 +1,31 @@
 <template>
-    <div class="hero">
-        <div class="text-gray-100 text-center font-mono">
-            <h1 class="xl:text-8xl md:text-7xl text-6xl text-gray-100 mt-15">Lachlan Chant</h1><br/>
-            <p class="xl:text-lg md:text-lg text-lg">
-                Experience in backend APIs and microservices,<br/>
-                Discord and Twitch bots and devops services.<br/><br/>
-                
-            </p>
-            <a href="#"><bx-bxs-down-arrow-circle class="text-5xl hero-down-arrow"/></a>
+    <section class="text-gray-400 dark-bg body-font h-screen">
+        <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+            <!--<img
+                class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded"
+                alt="hero"
+                src="https://dummyimage.com/720x600"
+            />-->
+            <img
+                alt="team"
+                class="lg:w-2/8 md:w-3/8 w-5/6 mb-10 object-cover object-center rounded-full heroimg"
+                src="/prof.jpg"
+            />
+            <div class="text-center lg:w-2/3 w-full">
+                <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">Welcome!</h1>
+                <p class="leading-relaxed mb-8">
+                    I'm Lachlan, a 26 year old Software Developer and Musician from Sydney, Australia.
+                    <br />Primarily experienced in web, specializing in backend APIs and microservices, including freelance services.<br/>
+                    <br/>C# & ASP.Net Core, JS, TS, NodeJS, VueJS.
+                </p>
+                <div class="flex justify-center">
+                    <a href="#">
+                        <bx-bxs-down-arrow-circle class="text-5xl hero-down-arrow" />
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script setup lang="ts">
@@ -17,22 +33,11 @@
 </script>
 
 <style scoped>
-.hero {
-    background: #121212;
-    background: linear-gradient(159deg, rgba(2,0,36,1) 0%, rgba(36,11,28,1) 0%, rgba(14,13,13,1) 36%);
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    height: 100vh;
-    min-height: 550px;
-    display: flex;
-    justify-content: center;
-    text-shadow: 2px 2px 8px #000;
-    margin-bottom: 55px;
-    box-shadow: 0 5px 13px 0 rgba(0, 0, 0, 0.68);
+.hero-down-arrow:hover {
+    color: rgb(75, 73, 201);
 }
 
-.hero-down-arrow:hover {
-    color: rgb(75, 73, 201)
+.heroimg {
+    filter: opacity(.8);
 }
 </style>
