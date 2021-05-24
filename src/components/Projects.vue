@@ -93,10 +93,10 @@
                         >
                         <ant-design-project-outlined/>
                         </div>
-                        <h2 class="text-lg text-white font-medium title-font mb-2">Freelance</h2>
+                        <h2 class="text-lg text-white font-medium title-font mb-2">Web Services</h2>
                         <p
                             class="leading-relaxed text-base"
-                        >I've built freelance projects for clients not listed here, but services are available for backend and frontend services.</p>
+                        >I've built freelance web projects for clients not listed here, but services are available for backend and frontend services.</p>
                     </div>
                 </div>
             </div>
