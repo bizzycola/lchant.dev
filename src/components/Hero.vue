@@ -19,7 +19,7 @@
                     <br/>C# & ASP.Net Core, JS, TS, NodeJS, VueJS.
                 </p>
                 <div class="flex justify-center">
-                    <a href="#">
+                    <a href="#projects" v-smooth-scroll>
                         <bx-bxs-down-arrow-circle class="text-5xl hero-down-arrow" />
                     </a>
                 </div>
@@ -38,6 +38,6 @@
 }
 
 .heroimg {
-    filter: opacity(.8);
+    filter: opacity(.6);
 }
 </style>

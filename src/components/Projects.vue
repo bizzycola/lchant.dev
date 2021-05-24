@@ -2,7 +2,7 @@
     <section class="text-gray-400 body-font dark-bg h-screen">
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">Projects</h1>
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white" id="projects">Projects</h1>
                 <p
                     class="lg:w-1/2 w-full leading-relaxed text-opacity-80"
                 >Here is a list of past and present projects I'm involved with.</p>

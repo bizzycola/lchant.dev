@@ -5,6 +5,8 @@ import App from './App.vue'
 import 'virtual:windi.css'
 import 'virtual:windi-devtools'
 import './styles/main.css'
+import VueSmoothScroll from 'vue3-smooth-scroll'
+
 
 const routes = setupLayouts(generatedRoutes)
 
@@ -15,5 +17,6 @@ export const createApp = ViteSSG(
   (ctx) => {
     // install all modules under `modules/`
     Object.values(import.meta.globEager('./modules/*.ts')).map(i => i.install?.(ctx))
-  },
+    ctx.app.use(VueSmoothScroll)
+  }
 )
