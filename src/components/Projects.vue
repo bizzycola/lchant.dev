@@ -17,7 +17,7 @@
                         <div
                             class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-4"
                         >
-                            <img src="/logos/deployrlogo.png" />
+                            <img src="logos/deployrlogo.png" />
                         </div>
                         <h2 class="text-lg text-white font-medium title-font mb-2">
                             <a href="https://deployrdocs.black-kro.dev" target="_blank">Deployr</a>
