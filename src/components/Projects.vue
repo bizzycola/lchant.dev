@@ -1,8 +1,8 @@
 <template>
-    <section class="text-gray-400 body-font dark-bg h-screen">
+    <section class="text-gray-400 body-font dark-bg" id="projects">
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white" id="projects">Projects</h1>
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white" >Projects</h1>
                 <p
                     class="lg:w-1/2 w-full leading-relaxed text-opacity-80"
                 >Here is a list containing some the of past and present<br/>projects I've been involved with.</p>
@@ -102,7 +102,7 @@
             </div>
             <br />
             <div class="flex justify-center">
-                <a href="#top" v-smooth-scroll>
+                <a href="#contact" v-smooth-scroll>
                     <bx-bxs-down-arrow-circle class="text-5xl hero-down-arrow"  />
                 </a>
             </div>
