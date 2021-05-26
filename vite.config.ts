@@ -67,7 +67,7 @@ export default defineConfig({
     }),
 
     // https://github.com/antfu/vite-plugin-pwa
-    /*VitePWA({
+    VitePWA({
       registerType: 'autoUpdate',
       manifest: {
         name: 'Vitesse',
@@ -92,7 +92,7 @@ export default defineConfig({
           },
         ],
       },
-    }),*/
+    }),
 
     // https://github.com/intlify/vite-plugin-vue-i18n
     VueI18n({
