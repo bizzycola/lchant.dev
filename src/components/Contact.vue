@@ -1,5 +1,5 @@
 <template>
-<section class="text-gray-400 dark-bg body-font relative h-screen">
+<section class="text-gray-400 dark-bg body-font relative min-h-screen">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-12">
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white" id="contact">Contact Me</h1>
