@@ -20,6 +20,7 @@
                                 id="name"
                                 name="name"
                                 class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                v-model="contactForm.name"
                             />
                         </div>
                     </div>
@@ -31,6 +32,7 @@
                                 id="email"
                                 name="email"
                                 class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                v-model="contactForm.email"
                             />
                         </div>
                     </div>
@@ -41,12 +43,16 @@
                                 id="message"
                                 name="message"
                                 class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                                :maxlength="500"
+                                v-model="contactForm.msg"
                             ></textarea>
                         </div>
                     </div>
                     <div class="p-2 w-full">
                         <button
                             class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+                            @click="sendContact"
+                            :disabled="contactForm.valid"
                         >Send</button>
                     </div>
                     <div class="p-2 w-full pt-8 mt-8 border-t border-gray-800 text-center">
@@ -94,6 +100,79 @@
         </div>
     </section>
 </template>
+
+<script setup lang="ts">
+import { useAxios } from '@vueuse/integrations'
+import { ref, watch, computed, reactive } from 'vue'
+import Swal from 'sweetalert2'
+
+const loading = ref(false);
+const disableBtn = ref(false);
+
+const contactForm = reactive({
+    name: "",
+    email: "",
+    msg: "",
+
+    valid: computed(() => {
+        var nameInvalid = contactForm.name.length < 2 || contactForm.name.length > 30;
+        var emailInvalid = contactForm.email.length < 3;
+        var msgInvalid = contactForm.msg.length < 5 || contactForm.msg.length > 500;
+
+        if (disableBtn.value || nameInvalid || emailInvalid || msgInvalid) return true;
+
+        return false;
+    })
+})
+
+const sendContact = () => {
+    loading.value = true;
+
+    const { data, error, isFinished } = useAxios(
+        'https://api.lchant.dev/api/contact/submit',
+        {
+            method: "POST",
+            data: {
+                "name": contactForm.name,
+                "email": contactForm.email,
+                "message": contactForm.msg
+            }
+        }
+    );
+
+    watch(isFinished, (val, prevVal) => {
+        loading.value = false;
+
+        if (data.value) {
+            if (data.value.success) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Your message has been sent!\nI\'ll try and respond to it as soon as possible!',
+                })
+            } else {
+                Swal.fire({
+                    title: 'Oops!',
+                    html: `Failed to send the form:<br/><strong>${data.value.error}</strong>`,
+                    icon: 'error'
+                })
+            }
+        } else {
+            var errData = "";
+
+            for(const [_,val] of Object.entries(error.value?.response?.data.errors)) {
+                errData += `<br/>${val}`;
+            }
+
+            Swal.fire({
+                title: 'Oops!',
+                html: `Failed to send the form: <strong>${errData}</strong>`,
+                icon: 'error'
+            })
+        }
+    });
+}
+
+</script>
 
 <style scoped>
 .hero-down-arrow:hover {
