@@ -52,28 +52,28 @@
                     <div class="p-2 w-full pt-8 mt-8 border-t border-gray-800 text-center">
                         <span class="inline-flex">
                             <a
-                                class="text-gray-500"
+                                class="text-gray-500 hover:text-gray-300"
                                 href="https://soundcloud.com/bizzycola"
                                 target="_blank"
                             >
                                 <bx-bxl-soundcloud />
                             </a>
                             <a
-                                class="ml-4 text-gray-500"
+                                class="ml-4 text-gray-500 hover:text-gray-300"
                                 href="https://twitter.com/bizzycola3"
                                 target="_blank"
                             >
                                 <bi-twitter />
                             </a>
                             <a
-                                class="ml-4 text-gray-500"
+                                class="ml-4 text-gray-500 hover:text-gray-300"
                                 href="https://github.com/bizzycola"
                                 target="_blank"
                             >
                                 <bi-github />
                             </a>
                             <a
-                                class="ml-4 text-gray-500"
+                                class="ml-4 text-gray-500 hover:text-gray-300"
                                 href="https://www.linkedin.com/in/lachlan-chant-737671112/"
                                 target="_blank"
                             >
