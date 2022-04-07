@@ -17,7 +17,7 @@
         <h1 class="title-font sm:text-6xl text-4xl mb-4 font-medium text-white tshadow">
           Welcome!
         </h1>
-        <p class="leading-relaxed mb-8 text-gray-100 shadow-md text-2xl tshadow">
+        <p class="leading-relaxed mb-8 text-gray-100 text-2xl tshadow">
           I'm Lachlan, a 27 year old Full Stack Developer from Sydney, Australia.
           <br />Primarily experienced in web, specializing in backend APIs and microservices, including freelance services.<br />
           <br />C# & ASP.Net Core, JS, TS, NodeJS, VueJS.
