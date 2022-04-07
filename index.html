@@ -15,11 +15,11 @@
     }
 
     body::-webkit-scrollbar-track {
-      background: #585858;
+      background: #7b3d2e9d;
     }
 
     body::-webkit-scrollbar-thumb {
-      background-color: rgb(8, 6, 24);
+      background-color: #160a1ec7;
       
     }
   </style>
@@ -28,7 +28,7 @@
 <body class="dark-bg">
   <div id="app"></div>
   <script>
-    (function () {
+    (function() {
       const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
       const setting = localStorage.getItem('color-schema') || 'auto'
       if (setting === 'dark' || (prefersDark && setting !== 'light'))
