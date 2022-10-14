@@ -54,12 +54,14 @@
           </div>
           <div class="p-2 w-full">
             <button
+              v-if="!loading"
               class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
               :disabled="contactForm.valid"
               @click="sendContact"
             >
               Send
             </button>
+            <Spinner v-else class="flex mx-auto" />
           </div>
           <div class="p-2 w-full pt-8 mt-8 border-t border-gray-800 text-center">
             <span class="inline-flex">
@@ -113,6 +115,7 @@
 import { useAxios } from '@vueuse/integrations'
 import { ref, watch, computed, reactive } from 'vue'
 import Swal from 'sweetalert2'
+import { useReCaptcha, IReCaptchaComposition } from 'vue-recaptcha-v3'
 
 const loading = ref(false)
 const disableBtn = ref(false)
@@ -133,52 +136,71 @@ const contactForm = reactive({
   }),
 })
 
-const sendContact = () => {
+const { executeRecaptcha, recaptchaLoaded } = useReCaptcha() as IReCaptchaComposition
+
+const sendContact = async() => {
   loading.value = true
 
-  const { data, error, isFinished } = useAxios(
-    'https://api.lchant.dev/api/contact/submit',
-    {
-      method: 'POST',
-      data: {
-        name: contactForm.name,
-        email: contactForm.email,
-        message: contactForm.msg,
+  try {
+    await recaptchaLoaded()
+    const token = await executeRecaptcha('login')
+
+    const { data, error, isFinished } = useAxios(
+      'https://formspree.io/f/xdojdbyr',
+      {
+        method: 'POST',
+        data: {
+          'name': contactForm.name,
+          'email': contactForm.email,
+          'message': contactForm.msg,
+          'g-recaptcha-response': token,
+        },
+        headers: {
+          Accept: 'application/json',
+        },
       },
-    },
-  )
+    )
 
-  watch(isFinished, (val, prevVal) => {
-    loading.value = false
+    watch(isFinished, (val, prevVal) => {
+      loading.value = false
 
-    if (data.value) {
-      if (data.value.success) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Your message has been sent!\nI\'ll try and respond to it as soon as possible!',
-        })
+      if (data.value) {
+        if (!data.value.errors) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Your message has been sent!\nI\'ll try and respond to it as soon as possible!',
+          })
+        }
+        else {
+          Swal.fire({
+            title: 'Oops!',
+            html: `Failed to send the form:<br/><strong>${data.value.errors?.map((error: { message: any }) => error.message).join(', ')}</strong>`,
+            icon: 'error',
+          })
+        }
       }
       else {
+        let errData = ''
+
+        for (const [_, val] of Object.entries(error.value?.response?.data.errors))
+          errData += `<br/>${val}`
+
         Swal.fire({
           title: 'Oops!',
-          html: `Failed to send the form:<br/><strong>${data.value.error}</strong>`,
+          html: `Failed to send the form: <strong>${errData}</strong>`,
           icon: 'error',
         })
       }
-    }
-    else {
-      let errData = ''
-
-      for (const [_, val] of Object.entries(error.value?.response?.data.errors))
-        errData += `<br/>${val}`
-
-      Swal.fire({
-        title: 'Oops!',
-        html: `Failed to send the form: <strong>${errData}</strong>`,
-        icon: 'error',
-      })
-    }
-  })
+    })
+  }
+  catch (e) {
+    loading.value = false
+    Swal.fire({
+      title: 'Oops!',
+      html: `Failed to send the form: <strong>${e}</strong>`,
+      icon: 'error',
+    })
+  }
 }
 
 </script>

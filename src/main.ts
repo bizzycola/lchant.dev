@@ -7,7 +7,7 @@ import 'virtual:windi-devtools'
 import './styles/main.css'
 import './styles/sw.scss'
 import VueSmoothScroll from 'vue3-smooth-scroll'
-
+import { VueReCaptcha } from 'vue-recaptcha-v3'
 
 const routes = setupLayouts(generatedRoutes)
 
@@ -19,5 +19,6 @@ export const createApp = ViteSSG(
     // install all modules under `modules/`
     Object.values(import.meta.globEager('./modules/*.ts')).map(i => i.install?.(ctx))
     ctx.app.use(VueSmoothScroll)
-  }
+    ctx.app.use(VueReCaptcha, { siteKey: '6LcCmn0iAAAAAIiuaJ_Uvmkwmr0LzyIn2mEz-GQR' })
+  },
 )

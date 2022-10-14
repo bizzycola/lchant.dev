@@ -34,6 +34,7 @@ specifiers:
   vite-ssg: ^0.9.2
   vue: ^3.0.11
   vue-i18n: ^9.1.6
+  vue-recaptcha-v3: ^2.0.1
   vue-router: ^4.0.6
   vue3-smooth-scroll: ^0.8.0
 
@@ -47,6 +48,7 @@ dependencies:
   sweetalert2: 11.0.16
   vue: 3.0.11
   vue-i18n: 9.1.6_vue@3.0.11
+  vue-recaptcha-v3: 2.0.1_vue@3.0.11
   vue-router: 4.0.6_vue@3.0.11
   vue3-smooth-scroll: 0.8.0
 
@@ -4755,6 +4757,10 @@ packages:
       picomatch: 2.3.0
     dev: true
 
+  /recaptcha-v3/1.10.0:
+    resolution: {integrity: sha512-aGTxYSk3FFNKnXeKDbLpgRDRyIHRZNBF5HyaXXAN1Aj4TSyyZvmoAn9CylvpqLV3pYpIQavwc+2rzhNFn5SsLQ==}
+    dev: false
+
   /regenerate-unicode-properties/8.2.0:
     resolution: {integrity: sha512-F9DjY1vKLo/tPePDycuH3dn9H1OTPIkVD9Kz4LODu+F2C75mgjAJ7x/gwy6ZcSNRAAkhNlJSOHRe8k3p+K9WhA==}
     engines: {node: '>=4'}
@@ -5862,6 +5868,15 @@ packages:
       '@intlify/shared': 9.1.6
       '@intlify/vue-devtools': 9.1.6
       '@vue/devtools-api': 6.0.0-beta.8
+      vue: 3.0.11
+    dev: false
+
+  /vue-recaptcha-v3/2.0.1_vue@3.0.11:
+    resolution: {integrity: sha512-isEDtOfHU4wWRrZZuxciAELtQmPOeEEdicPNa0f1AOyLPy3sCcBEcpFt+FOcO3RQv5unJ3Yn5NlsWtXv9rXqjg==}
+    peerDependencies:
+      vue: ^3.0.11
+    dependencies:
+      recaptcha-v3: 1.10.0
       vue: 3.0.11
     dev: false
 
