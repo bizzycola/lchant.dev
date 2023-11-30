@@ -18,9 +18,9 @@
           Welcome!
         </h1>
         <p class="leading-relaxed mb-8 text-gray-100 text-2xl tshadow">
-          I'm Lachlan, a 27 year old Full Stack Developer from Sydney, Australia.
-          <br />Primarily experienced in web, specializing in backend APIs and microservices, including freelance services.<br />
-          <br />C# & ASP.Net Core, JS, TS, NodeJS, VueJS.
+          I'm Lachlan, a 28 year old Full Stack Developer from Sydney, Australia.
+          <br />Primarily experienced in web, specializing in backend and APIs, including freelance services.<br />
+          <br />C# & ASP.Net Core, JS, TS, NodeJS, VueJS, PHP (Laravel & WordPress).
         </p>
         <div class="flex justify-center">
           <a v-smooth-scroll href="#projects">
